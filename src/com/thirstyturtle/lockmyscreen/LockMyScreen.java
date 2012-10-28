@@ -61,7 +61,7 @@ public final class LockMyScreen extends Activity {
   }
 
   private void showExplainingDialogAndTryAgain() {
-    AlertDialog.Builder builder = new AlertDialog.Builder( this );
+    AlertDialog.Builder builder = new AlertDialog.Builder( this, AlertDialog.THEME_DEVICE_DEFAULT_DARK );
     builder.setTitle( com.thirstyturtle.lockmyscreen.R.string.request_permission_title );
     builder.setMessage( com.thirstyturtle.lockmyscreen.R.string.request_permission_message );
     builder.setPositiveButton( R.string.ok, new DialogInterface.OnClickListener() {
@@ -78,6 +78,7 @@ public final class LockMyScreen extends Activity {
         finish();
       }
     } );
+
 
     builder.create().show();
   }
