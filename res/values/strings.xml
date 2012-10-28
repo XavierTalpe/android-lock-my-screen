@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Lock My Screen</string>
+  <string name="app_description">Lock your screen without using the power button.</string>
+
+  <string name="request_permission_title">This app requires permissions</string>
+  <string name="request_permission_message">Without the permission to lock your screen, I\'m pretty useless. You wouldn\'t want this app to be useless, would you?</string>
+</resources>
