@@ -15,34 +15,19 @@ public final class LockMyScreen extends Activity {
 
   private static final int REQUEST_CODE_ENABLE_ADMIN = 2;
 
-  private ComponentName fAdminComponent;
-  private DevicePolicyManager fPolicyManager;
-
   @Override
   public void onCreate( Bundle aSavedInstanceState ) {
     super.onCreate( aSavedInstanceState );
 
-    fAdminComponent = new ComponentName( LockMyScreen.this, PermissionReceiver.class );
-    fPolicyManager = ( DevicePolicyManager ) getSystemService( Context.DEVICE_POLICY_SERVICE );
+    ComponentName adminComponent = new ComponentName( LockMyScreen.this, PermissionReceiver.class );
+    DevicePolicyManager policyManager = ( DevicePolicyManager ) getSystemService( Context.DEVICE_POLICY_SERVICE );
 
-    if ( fPolicyManager.isAdminActive( fAdminComponent ) ) {
-      lockScreen();
+    if ( policyManager.isAdminActive( adminComponent ) ) {
+      lockScreen( policyManager );
     }
     else {
-      requestPermission();
+      requestPermission( adminComponent );
     }
-  }
-
-  private void lockScreen() {
-    fPolicyManager.lockNow();
-    finish();
-  }
-
-  private void requestPermission() {
-    Intent intent = new Intent( DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN );
-    intent.putExtra( DevicePolicyManager.EXTRA_DEVICE_ADMIN, fAdminComponent );
-
-    startActivityForResult( intent, REQUEST_CODE_ENABLE_ADMIN );
   }
 
   @Override
@@ -53,21 +38,35 @@ public final class LockMyScreen extends Activity {
     // or rejected the request.
 
     if ( aResultCode == RESULT_OK ) {
-      lockScreen();
+      DevicePolicyManager policyManager = ( DevicePolicyManager ) getSystemService( Context.DEVICE_POLICY_SERVICE );
+      lockScreen( policyManager );
     }
     else {
-      showExplainingDialogAndTryAgain();
+      askUserToRetry();
     }
   }
 
-  private void showExplainingDialogAndTryAgain() {
+  private void lockScreen( DevicePolicyManager aPolicyManager ) {
+    aPolicyManager.lockNow();
+    finish();
+  }
+
+  private void requestPermission( ComponentName aAdminComponent ) {
+    Intent intent = new Intent( DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN );
+    intent.putExtra( DevicePolicyManager.EXTRA_DEVICE_ADMIN, aAdminComponent );
+
+    startActivityForResult( intent, REQUEST_CODE_ENABLE_ADMIN );
+  }
+
+  private void askUserToRetry() {
     AlertDialog.Builder builder = new AlertDialog.Builder( this, AlertDialog.THEME_DEVICE_DEFAULT_DARK );
     builder.setTitle( com.thirstyturtle.lockmyscreen.R.string.request_permission_title );
     builder.setMessage( com.thirstyturtle.lockmyscreen.R.string.request_permission_message );
     builder.setPositiveButton( R.string.ok, new DialogInterface.OnClickListener() {
       @Override
       public void onClick( DialogInterface aDialog, int aButton ) {
-        requestPermission();
+        ComponentName adminComponent = new ComponentName( LockMyScreen.this, PermissionReceiver.class );
+        requestPermission( adminComponent );
       }
     } );
 
@@ -78,7 +77,6 @@ public final class LockMyScreen extends Activity {
         finish();
       }
     } );
-
 
     builder.create().show();
   }
