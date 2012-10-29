@@ -1,0 +1,10 @@
+com.thirstyturtle.lockmyscreen.LockMyScreen
+com.thirstyturtle.lockmyscreen.LockMyScreen: LockMyScreen()
+com.thirstyturtle.lockmyscreen.LockMyScreen$PermissionReceiver
+com.thirstyturtle.lockmyscreen.LockMyScreen$PermissionReceiver: LockMyScreen$PermissionReceiver()
+com.thirstyturtle.lockmyscreen.R$drawable: int app_icon
+com.thirstyturtle.lockmyscreen.R$string: int app_description
+com.thirstyturtle.lockmyscreen.R$string: int app_name
+com.thirstyturtle.lockmyscreen.R$string: int request_permission_message
+com.thirstyturtle.lockmyscreen.R$string: int request_permission_title
+com.thirstyturtle.lockmyscreen.R$xml: int admin_policies
