@@ -3,6 +3,7 @@
 .gradle/
 
 gen/
+proguard_logs
 
 local.properties
 
