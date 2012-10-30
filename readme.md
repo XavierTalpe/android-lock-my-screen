@@ -9,7 +9,7 @@ to lock your device and turn off the screen. No settings, no adds, just simple a
 
 * Lock the device with a single touch.
 * Prevents wearing out the power button of your device.
-* Takes up almost no space (< 16Kb).
+* Takes up almost no space (< 20Kb).
 * Power efficient: kills itself after locking screen.
 * Also works when long-pressing the search button.
 
