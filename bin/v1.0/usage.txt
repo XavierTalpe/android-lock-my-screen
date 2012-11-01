@@ -1,8 +1,0 @@
-com.thirstyturtle.lockmyscreen.BuildConfig
-com.thirstyturtle.lockmyscreen.LockMyScreen:
-    private static final int REQUEST_CODE_ENABLE_ADMIN
-com.thirstyturtle.lockmyscreen.R
-com.thirstyturtle.lockmyscreen.R$attr
-com.thirstyturtle.lockmyscreen.R$drawable
-com.thirstyturtle.lockmyscreen.R$string
-com.thirstyturtle.lockmyscreen.R$xml
