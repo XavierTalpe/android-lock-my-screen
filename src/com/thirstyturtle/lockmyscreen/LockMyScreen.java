@@ -34,9 +34,6 @@ public final class LockMyScreen extends Activity {
   @Override
   protected void onActivityResult( int aRequestCode, int aResultCode, Intent aData ) {
     super.onActivityResult( aRequestCode, aResultCode, aData );
-    // TODO: There's no guarantee this result is correct. Instead we use the
-    // admin receiver object to keep track of whether a user accepted
-    // or rejected the request.
 
     if ( aResultCode == RESULT_OK ) {
       DevicePolicyManager policyManager = ( DevicePolicyManager ) getSystemService( Context.DEVICE_POLICY_SERVICE );
