@@ -9,6 +9,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 public final class LockMyScreen extends Activity {
@@ -59,7 +60,14 @@ public final class LockMyScreen extends Activity {
   }
 
   private void askUserToRetry() {
-    AlertDialog.Builder builder = new AlertDialog.Builder( this, AlertDialog.THEME_DEVICE_DEFAULT_DARK );
+    AlertDialog.Builder builder;
+    if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH ) {
+      builder = new AlertDialog.Builder( this, AlertDialog.THEME_DEVICE_DEFAULT_DARK );
+    }
+    else {
+      builder = new AlertDialog.Builder( this );
+    }
+
     builder.setTitle( com.thirstyturtle.lockmyscreen.R.string.request_permission_title );
     builder.setMessage( com.thirstyturtle.lockmyscreen.R.string.request_permission_message );
     builder.setPositiveButton( R.string.ok, new DialogInterface.OnClickListener() {

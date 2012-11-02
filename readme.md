@@ -20,5 +20,6 @@ How to uninstall the application?
 
 Changelog
 ---------
+02/11/2012 - Added support for Android 2.2 devices and up.
 01/11/2012 - Updated logo.
 29/10/2012 - First release.
