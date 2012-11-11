@@ -8,7 +8,7 @@ Lock your device without using the power button. Instead use a single touch to l
 
 • Lock the device with a single touch.
 • Prevents wearing out the power button of your device.
-• Takes up almost no space (< 25Kb).
+• Takes up almost no space (< 30Kb).
 • Power efficient: kills itself after locking screen.
 • Also works when long-pressing the search button.
 
