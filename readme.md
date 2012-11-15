@@ -8,7 +8,7 @@ Lock your device without using the power button. Instead use a single touch to l
 
 • Lock the device with a single touch.
 • Prevents wearing out the power button of your device.
-• Takes up almost no space (< 30Kb).
+• Takes up almost no space (< 25Kb).
 • Power efficient: kills itself after locking screen.
 • Also works when long-pressing the search button.
 
@@ -19,6 +19,7 @@ How to uninstall the application?
 
 Changelog
 ---------
+15/11/2012 - Added support for Android 4.2.
 02/11/2012 - Added support for Android 2.2 devices and up.
 01/11/2012 - Updated logo.
 29/10/2012 - First release.
