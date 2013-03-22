@@ -1,9 +1,18 @@
 *.iml
+*.ipr
+*.iws
+.classpath
+.project
+
 .idea/
 .gradle/
+.settings/
 
+out/
+bin/
+build/
+target/
 gen/
-proguard_logs
 
 local.properties
-
+proguard_logs
