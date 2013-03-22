@@ -2,6 +2,6 @@
 
 <device-admin>
   <uses-policies>
-    <force-lock/>
+    <force-lock />
   </uses-policies>
 </device-admin>
