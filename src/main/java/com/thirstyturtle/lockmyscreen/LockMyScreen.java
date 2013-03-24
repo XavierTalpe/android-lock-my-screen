@@ -10,15 +10,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 
 public final class LockMyScreen extends Activity {
 
   private static final int REQUEST_CODE_ENABLE_ADMIN = 2;
 
   @Override
-  public void onCreate( Bundle aSavedInstanceState ) {
-    super.onCreate( aSavedInstanceState );
+  protected void onResume() {
+    super.onResume();
 
     ComponentName adminComponent = new ComponentName( LockMyScreen.this, PermissionReceiver.class );
     DevicePolicyManager policyManager = ( DevicePolicyManager ) getSystemService( Context.DEVICE_POLICY_SERVICE );

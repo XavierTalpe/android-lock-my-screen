@@ -19,7 +19,8 @@ How to uninstall the application?
 
 Changelog
 ---------
-15/11/2012 - Added support for Android 4.2.
-02/11/2012 - Added support for Android 2.2 devices and up.
-01/11/2012 - Updated logo.
-29/10/2012 - First release.
+Mar 23, 2013 - Prevent app from showing in "Recent Apps" list since this app has a non-conventional lifecycle.
+Nov 15, 2012 - Added support for Android 4.2.
+Nov 02, 2012 - Added support for Android 2.2 devices and up.
+Nov 01, 2012 - Updated logo.
+Oct 29, 2012 - First release.
