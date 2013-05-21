@@ -6,6 +6,8 @@ Description
 
 Lock your device without using the power button. Instead use a single touch to lock your device and turn off the screen. No settings, no adds, just a simple and clean app!
 
+To uninstall the application, see the instructions below!
+
 • Lock the device with a single touch.
 • Prevents wearing out the power button of your device.
 • Takes up almost no space (< 25Kb).
@@ -19,6 +21,7 @@ How to uninstall the application?
 
 Changelog
 ---------
+May 21, 2013 - Added some subtle instructions for uninstalling the application.
 Mar 23, 2013 - Prevent app from showing in "Recent Apps" list since this app has a non-conventional lifecycle.
 Nov 15, 2012 - Added support for Android 4.2.
 Nov 02, 2012 - Added support for Android 2.2 devices and up.
