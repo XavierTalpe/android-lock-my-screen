@@ -19,6 +19,10 @@ How to uninstall the application?
 • Click on "Lock My Screen" and choose "Deactivate".
 • You can now uninstall the app.
 
+Keywords
+--------
+lock, screen, screen off, free
+
 Changelog
 ---------
 May 21, 2013 - Added some subtle instructions for uninstalling the application.
