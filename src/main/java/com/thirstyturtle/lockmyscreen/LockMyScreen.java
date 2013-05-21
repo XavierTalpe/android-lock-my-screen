@@ -17,6 +17,7 @@ import android.widget.Toast;
 public final class LockMyScreen extends Activity {
 
   private static final int MAX_RETRY_COUNT = 4;
+  private static final int RETRY_DELAY = 100;
 
   private static final int REQUEST_CODE_ENABLE_ADMIN = 2;
 
@@ -53,19 +54,19 @@ public final class LockMyScreen extends Activity {
     final Handler handler = new Handler( getMainLooper() );
     final int[] retryCount = new int[]{ 0 };
 
-    handler.postDelayed( new Runnable() {
+    handler.post( new Runnable() {
       @Override
       public void run() {
         if ( powerManager.isScreenOn() && retryCount[ 0 ] <= MAX_RETRY_COUNT ) {
           aPolicyManager.lockNow();
           retryCount[ 0 ]++;
-          handler.postDelayed( this, 250 );
+          handler.postDelayed( this, RETRY_DELAY * retryCount[ 0 ] );
         }
         else {
           finish();
         }
       }
-    }, 50 );
+    } );
   }
 
   private void requestPermission( ComponentName aAdminComponent ) {
