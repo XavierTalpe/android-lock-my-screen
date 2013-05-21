@@ -10,9 +10,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.PowerManager;
 import android.widget.Toast;
 
 public final class LockMyScreen extends Activity {
+
+  private static final int MAX_RETRY_COUNT = 4;
 
   private static final int REQUEST_CODE_ENABLE_ADMIN = 2;
 
@@ -44,9 +48,24 @@ public final class LockMyScreen extends Activity {
     }
   }
 
-  private void lockScreen( DevicePolicyManager aPolicyManager ) {
-    aPolicyManager.lockNow();
-    finish();
+  private void lockScreen( final DevicePolicyManager aPolicyManager ) {
+    final PowerManager powerManager = ( PowerManager ) getSystemService( Context.POWER_SERVICE );
+    final Handler handler = new Handler( getMainLooper() );
+    final int[] retryCount = new int[]{ 0 };
+
+    handler.postDelayed( new Runnable() {
+      @Override
+      public void run() {
+        if ( powerManager.isScreenOn() && retryCount[ 0 ] <= MAX_RETRY_COUNT ) {
+          aPolicyManager.lockNow();
+          retryCount[ 0 ]++;
+          handler.postDelayed( this, 250 );
+        }
+        else {
+          finish();
+        }
+      }
+    }, 50 );
   }
 
   private void requestPermission( ComponentName aAdminComponent ) {
