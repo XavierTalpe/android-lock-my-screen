@@ -1,6 +1,5 @@
 package com.thirstyturtle.lockmyscreen;
 
-import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.admin.DeviceAdminReceiver;
@@ -11,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public final class LockMyScreen extends Activity {
 
@@ -50,8 +50,11 @@ public final class LockMyScreen extends Activity {
   }
 
   private void requestPermission( ComponentName aAdminComponent ) {
+    String explanation = getResources().getString( R.string.request_permission_explanation );
+
     Intent intent = new Intent( DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN );
     intent.putExtra( DevicePolicyManager.EXTRA_DEVICE_ADMIN, aAdminComponent );
+    intent.putExtra( DevicePolicyManager.EXTRA_ADD_EXPLANATION, explanation );
 
     startActivityForResult( intent, REQUEST_CODE_ENABLE_ADMIN );
   }
@@ -67,7 +70,7 @@ public final class LockMyScreen extends Activity {
 
     builder.setTitle( com.thirstyturtle.lockmyscreen.R.string.request_permission_title );
     builder.setMessage( com.thirstyturtle.lockmyscreen.R.string.request_permission_message );
-    builder.setPositiveButton( R.string.ok, new DialogInterface.OnClickListener() {
+    builder.setPositiveButton( android.R.string.ok, new DialogInterface.OnClickListener() {
       @Override
       public void onClick( DialogInterface aDialog, int aButton ) {
         ComponentName adminComponent = new ComponentName( LockMyScreen.this, PermissionReceiver.class );
@@ -75,7 +78,7 @@ public final class LockMyScreen extends Activity {
       }
     } );
 
-    builder.setNegativeButton( R.string.cancel, new DialogInterface.OnClickListener() {
+    builder.setNegativeButton( android.R.string.cancel, new DialogInterface.OnClickListener() {
       @Override
       public void onClick( DialogInterface aDialog, int aButton ) {
         aDialog.dismiss();
@@ -88,6 +91,10 @@ public final class LockMyScreen extends Activity {
 
   public static final class PermissionReceiver extends DeviceAdminReceiver {
 
+    @Override
+    public void onDisabled( Context aContext, Intent aIntent ) {
+      Toast.makeText( aContext, R.string.on_permission_disabled, Toast.LENGTH_LONG ).show();
+    }
   }
 
 }

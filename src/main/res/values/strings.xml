@@ -7,4 +7,11 @@
   <string name="request_permission_message">Without the permission to lock your screen, I\'m pretty useless. You
     wouldn\'t want this app to be useless, would you?
   </string>
+
+  <string name="request_permission_explanation">
+    Remember to disable this permission before you uninstalling the application.
+  </string>
+
+  <string name="on_permission_disabled">The application can now be uninstalled.</string>
+
 </resources>
