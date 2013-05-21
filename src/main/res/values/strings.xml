@@ -9,7 +9,7 @@
   </string>
 
   <string name="request_permission_explanation">
-    Remember to disable this permission before you uninstalling the application.
+    Remember that you can only uninstall this app after you disabled the device administrator permission.
   </string>
 
   <string name="on_permission_disabled">The application can now be uninstalled.</string>
