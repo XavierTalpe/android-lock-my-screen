@@ -10,7 +10,7 @@ To uninstall the application, see the instructions below!
 
 • Lock the device with a single touch.
 • Prevents wearing out the power button of your device.
-• Takes up almost no space (< 25Kb).
+• Takes up almost no space (< 40Kb).
 • Power efficient: kills itself after locking screen.
 • Also works when long-pressing the search button.
 
@@ -25,6 +25,7 @@ lock, screen, screen off, free
 
 Changelog
 ---------
+May 22, 2013 - Fix for Android 4.0.3/4 devices.
 May 21, 2013 - Added some subtle instructions for uninstalling the application.
 Mar 23, 2013 - Prevent app from showing in "Recent Apps" list since this app has a non-conventional lifecycle.
 Nov 15, 2012 - Added support for Android 4.2.
